@@ -30,6 +30,11 @@ app.get('/', function(req, res, next) {
 
 app.get('/alex', function(req, res, next) {
   res.render('alex');
+  res.render('index', { title: "COOL BRO" });
+});
+
+app.get('/hello', function(req, res, next) {
+  res.render('hello');
 });
 
 // catch 404 and forward to error handler
