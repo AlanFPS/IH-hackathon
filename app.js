@@ -25,6 +25,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use('/users', usersRouter);
 
 app.get('/', function(req, res, next) {
+  res.render('index', { title: 'Express' });
+});
+
+app.get('/alex', function(req, res, next) {
+  res.render('alex');
   res.render('index', { title: "COOL BRO" });
 });
 
