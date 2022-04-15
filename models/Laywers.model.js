@@ -1,18 +1,23 @@
 const {Schema, model} = require('mongoose')
 
-const userSchema =  new Schema({
+const lawyerSchema =  new Schema({
     name: {
         type: String,
         required: true
     },
 
-    age: {
-        type: Number,
+    location: {
+        type: String,
         required: true
     },
 
-    dob: {
-        type: Date,
+    practice: {
+        type: Boolean,
+        required: true
+    },
+
+    fee: {
+        type: Number,
         required: true
     }
     //Stay inside these braces
@@ -24,6 +29,4 @@ const userSchema =  new Schema({
     }
 );
 
-const User =  model("User", userSchema)
-
-module.exports = User
+const Lawyer =  model("Lawyer", lawyerSchema)

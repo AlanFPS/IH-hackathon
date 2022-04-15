@@ -1,18 +1,28 @@
 const mongoose = require("mongoose");
-const User = require("../models/User.models");
+const Lawyer = require("../models/Lawyers.model");
 
 
-let users = [
+let lawyers = [
         {
         name: "Bob",
-        age: 32,
-        dob: 090909,
+        location: "California",
+        practice: true,
+        fee: 650
         },
+        
         {
         name: "Jane",
-        age: 31,
-        dob: 090909,
+        location: "Florida",
+        practice: false,
+        fee: 300
         },
+
+        {
+        name: "Mary",
+        location: "Washington",
+        practice: true,
+        fee: 50
+        }
 ]
 
 mongoose
@@ -20,9 +30,9 @@ mongoose
   .then(x => console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`))
   .catch(err => console.error('Error connecting to mongo', err));
 
-  User.create(users)
+  Lawyer.create(lawyers)
   .then(function(results) {
-      console.log("Users saved", results)
+      console.log("Lawyers saved", results)
       mongoose.connection.close()
   })
   .catch(function(error) {

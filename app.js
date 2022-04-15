@@ -4,11 +4,11 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-const mongoose = require("mongoose")
-const User = require("./models/User.models");
+// var indexRouter = require('./routes/index');
+// var lawyersRouter = require('./routes/lawyers');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const mongoose = require("mongoose")
+const Lawyer = require("./models/Laywers.model");
 
 var app = express();
 
@@ -22,21 +22,21 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use('/', indexRouter);
-// app.use('/users', usersRouter);
+// app.use("/", indexRouter);
+// app.use("/Lawyers", lawyersRouter);
 
 
 app.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'LAWYERS INDEX' });
 });
 
-app.get('/alex', function(req, res, next) {
-  res.render('alex');
-  res.render('index', { title: "COOL BRO" });
+app.get('/lawyers', function(req, res, next) {
+  Lawyer.find().then
+  res.render('lawyers');
 });
 
-app.get('/hello', function(req, res, next) {
-  res.render('hello');
+app.get('/expertise', function(req, res, next) {
+  res.render('expertise');
 });
 
 // catch 404 and forward to error handler
