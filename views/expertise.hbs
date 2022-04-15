@@ -1,0 +1,17 @@
+<h2>All Specialties</h2>
+{{#each expertiseArr}}
+
+  <p>{{this.name}}</p>
+  {{! alternatively }}
+  {{!-- <p>{{name}}</p> --}}
+  {{#if this.isFood}}
+    <p>{{this.name}} is food</p>
+  {{else}}
+    <p>{{this.name}} is not food</p>
+  {{/if}}
+  {{! Like if, but checks falsy }}
+  {{#unless this.name}}
+    <p>We don't know what this is</p>
+  {{/unless}}
+
+{{/each}}
